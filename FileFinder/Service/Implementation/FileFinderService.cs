@@ -4,6 +4,7 @@ using System.IO.Abstractions;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace FileFinder.Service.Implementation
@@ -18,14 +19,15 @@ namespace FileFinder.Service.Implementation
             _fileSystem = fileSystem;
         }
 
-        public string FindByRegex(string folder, string filenamePattern)
+        public string FindByRegex(string folder, string filenamePattern, bool caseSensitive)
         {
             StringBuilder result = new StringBuilder();
             var list = GetFileList(folder);
             int count = 0;
+
+            var regex = BuildRegex(filenamePattern, caseSensitive);
             foreach (var file in list)
             {
-                var regex = new Regex(filenamePattern);
                 if (regex.IsMatch(file))
                 {
                     result.AppendLine(file);
@@ -36,9 +38,14 @@ namespace FileFinder.Service.Implementation
             return result.ToString();
         }
 
+        private static Regex BuildRegex(string filenamePattern, bool caseSensitive)
+        {
+            var regexOptions = caseSensitive ? RegexOptions.None : RegexOptions.IgnoreCase;
+            return new Regex(filenamePattern, regexOptions);
+        }
+
         private IList<string> GetFileList(string folder)
         {
-            return _fileSystem.Directory.EnumerateFiles(folder).ToList();
             if (!_cache.ContainsKey(folder))
             {
                 AddFileListToCache(folder);
@@ -49,8 +56,18 @@ namespace FileFinder.Service.Implementation
 
         private void AddFileListToCache(string folder)
         {
-            List<string> files = _fileSystem.Directory.EnumerateFiles(folder).ToList();
+            List<string> files = TraverseFileSystem(folder);
             _cache.Add(folder, files);
+        }
+
+        private List<string> TraverseFileSystem(string folder)
+        {
+            List<string> files = _fileSystem.Directory.EnumerateFiles(folder).ToList();
+            foreach (var dir in _fileSystem.Directory.EnumerateDirectories(folder).ToList())
+            {
+                files.AddRange(TraverseFileSystem(dir));
+            }
+            return files;
         }
     }
 }

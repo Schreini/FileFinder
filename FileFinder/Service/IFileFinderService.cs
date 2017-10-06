@@ -8,6 +8,6 @@ namespace FileFinder.Service
 {
     public interface IFileFinderService
     {
-        string FindByRegex(string folder, string filenamePattern);
+        string FindByRegex(string folder, string filenamePattern, bool caseSensitive);
     }
 }

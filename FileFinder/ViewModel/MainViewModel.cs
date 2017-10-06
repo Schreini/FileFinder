@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Reactive.Linq;
 using System.Windows.Input;
 using FileFinder.Service;
 using ReactiveUI;
+
 
 namespace FileFinder.ViewModel
 {
@@ -16,9 +13,26 @@ namespace FileFinder.ViewModel
         private string _folder = "c:\\";
         public IFileFinderService FinderService { get; }
 
+        bool _caseSensitive;
+
+        public bool CaseSensitive
+        {
+            get => _caseSensitive;
+            set => this.RaiseAndSetIfChanged(ref _caseSensitive, value);
+        }
+
         public MainViewModel(IFileFinderService finderService)
         {
             FinderService = finderService;
+            Find = ReactiveCommand.Create(async () =>
+            {
+                string result = "";
+                await Observable.Start(() =>
+                {
+                    result = FinderService.FindByRegex(Folder, FilenamePattern, CaseSensitive);
+                });
+                MatchingFiles = result;
+            });
         }
 
         public string Folder
@@ -39,21 +53,10 @@ namespace FileFinder.ViewModel
 
         public string MatchingFiles
         {
-            get { return _matchingFiles; }
-            set { this.RaiseAndSetIfChanged(ref _matchingFiles, value); }
+            get => _matchingFiles;
+            set => this.RaiseAndSetIfChanged(ref _matchingFiles, value);
         }
 
-        public ICommand Find =>
-            ReactiveCommand.Create(() =>
-            {
-                try
-                {
-                    MatchingFiles = FinderService.FindByRegex(Folder, FilenamePattern);
-                }
-                catch (Exception e)
-                {
-                    MatchingFiles = e.ToString();
-                }
-            });
+        public ICommand Find { get; }
     }
 }

@@ -13,9 +13,9 @@ using ReactiveUI;
 
 namespace FileFinder.View
 {
-    public partial class MainForm : Form, IViewFor<MainViewModel>
+    public partial class MainView : Form, IViewFor<MainViewModel>
     {
-        public MainForm()
+        public MainView()
         {
             InitializeComponent();
             CreateAndBindViewModel();
@@ -26,8 +26,9 @@ namespace FileFinder.View
             var t = new TextEdit();
             VM = new MainViewModel(new FileFinderService(new FileSystem()));
             this.Bind(VM, vm => vm.Folder, v => v.TxtFolder.Text, TxtFolder.LostFocusEvent());
-            this.WhenAnyValue(x=>x.TxtFilename.Text).BindTo(VM, vm => vm.FilenamePattern);
+            this.Bind(VM, vm => vm.FilenamePattern, v => v.TxtFilename.Text, TxtFilename.KeyUpEvent());
             this.Bind(VM, vm => vm.MatchingFiles, v => v.TxtResult.Text, TxtResult.LostFocusEvent());
+            this.Bind(VM, vm => vm.CaseSensitive, v => v.CbxCaseSensitive.Checked, CbxCaseSensitive.CheckedChangedEvent());
             this.BindCommand(VM, vm => vm.Find, c => c.BtnFind, "Click");
         }
 
@@ -77,6 +78,10 @@ namespace FileFinder.View
         public static IObservable<EventPattern<object>> KeyUpEvent(this TextEdit editText)
         {
             return Observable.FromEventPattern(editText, "KeyUp");
+        }
+        public static IObservable<EventPattern<object>> CheckedChangedEvent(this CheckEdit checkEdit)
+        {
+            return Observable.FromEventPattern(checkEdit, "CheckedChanged");
         }
 
     }

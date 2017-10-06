@@ -1,6 +1,6 @@
 ﻿namespace FileFinder.View
 {
-    partial class MainForm
+    partial class MainView
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -34,9 +34,12 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.BtnFind = new DevExpress.XtraEditors.SimpleButton();
             this.TxtResult = new DevExpress.XtraEditors.MemoEdit();
-            this.TxtFilename = new System.Windows.Forms.TextBox();
+            this.TxtFilename = new DevExpress.XtraEditors.TextEdit();
+            this.CbxCaseSensitive = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtFolder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtResult.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtFilename.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CbxCaseSensitive.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -54,7 +57,7 @@
             this.TxtFolder.Location = new System.Drawing.Point(97, 12);
             this.TxtFolder.Name = "TxtFolder";
             this.TxtFolder.Size = new System.Drawing.Size(737, 20);
-            this.TxtFolder.TabIndex = 1;
+            this.TxtFolder.TabIndex = 0;
             // 
             // BtnPickFolder
             // 
@@ -62,7 +65,7 @@
             this.BtnPickFolder.Location = new System.Drawing.Point(840, 10);
             this.BtnPickFolder.Name = "BtnPickFolder";
             this.BtnPickFolder.Size = new System.Drawing.Size(17, 23);
-            this.BtnPickFolder.TabIndex = 2;
+            this.BtnPickFolder.TabIndex = 6;
             this.BtnPickFolder.Text = "...";
             // 
             // labelControl2
@@ -70,7 +73,7 @@
             this.labelControl2.Location = new System.Drawing.Point(13, 41);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(78, 13);
-            this.labelControl2.TabIndex = 4;
+            this.labelControl2.TabIndex = 2;
             this.labelControl2.Text = "FilenamePattern";
             // 
             // BtnFind
@@ -79,7 +82,7 @@
             this.BtnFind.Location = new System.Drawing.Point(794, 64);
             this.BtnFind.Name = "BtnFind";
             this.BtnFind.Size = new System.Drawing.Size(63, 45);
-            this.BtnFind.TabIndex = 5;
+            this.BtnFind.TabIndex = 4;
             this.BtnFind.Text = "Find";
             // 
             // TxtResult
@@ -90,20 +93,31 @@
             this.TxtResult.Location = new System.Drawing.Point(13, 115);
             this.TxtResult.Name = "TxtResult";
             this.TxtResult.Size = new System.Drawing.Size(844, 335);
-            this.TxtResult.TabIndex = 6;
+            this.TxtResult.TabIndex = 5;
             // 
             // TxtFilename
             // 
+            this.TxtFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtFilename.Location = new System.Drawing.Point(97, 38);
             this.TxtFilename.Name = "TxtFilename";
             this.TxtFilename.Size = new System.Drawing.Size(737, 20);
-            this.TxtFilename.TabIndex = 7;
+            this.TxtFilename.TabIndex = 3;
             // 
-            // MainForm
+            // CbxCaseSensitive
+            // 
+            this.CbxCaseSensitive.Location = new System.Drawing.Point(97, 65);
+            this.CbxCaseSensitive.Name = "CbxCaseSensitive";
+            this.CbxCaseSensitive.Properties.Caption = "Case sensitive";
+            this.CbxCaseSensitive.Size = new System.Drawing.Size(97, 19);
+            this.CbxCaseSensitive.TabIndex = 7;
+            // 
+            // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(869, 462);
+            this.Controls.Add(this.CbxCaseSensitive);
             this.Controls.Add(this.TxtFilename);
             this.Controls.Add(this.TxtResult);
             this.Controls.Add(this.BtnFind);
@@ -111,10 +125,12 @@
             this.Controls.Add(this.BtnPickFolder);
             this.Controls.Add(this.TxtFolder);
             this.Controls.Add(this.labelControl1);
-            this.Name = "MainForm";
+            this.Name = "MainView";
             this.Text = "FileFinder";
             ((System.ComponentModel.ISupportInitialize)(this.TxtFolder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtResult.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtFilename.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CbxCaseSensitive.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,7 +144,8 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton BtnFind;
         private DevExpress.XtraEditors.MemoEdit TxtResult;
-        private System.Windows.Forms.TextBox TxtFilename;
+        private DevExpress.XtraEditors.TextEdit TxtFilename;
+        private DevExpress.XtraEditors.CheckEdit CbxCaseSensitive;
     }
 }
 
