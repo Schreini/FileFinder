@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO.Abstractions;
 using System.Linq;
@@ -36,6 +37,28 @@ namespace FileFinder.Service.Implementation
             }
             result.AppendLine($"Found {count} files.");
             return result.ToString();
+        }
+
+        public IEnumerable<DirectoryLineItem> FindDirectoriesByRegex(string directory, string pattern, bool caseSensitive)
+        {
+            IList<DirectoryLineItem> result = new List<DirectoryLineItem>();
+            var list = GetDirectoryList(directory);
+
+            foreach (var dir in list)
+            {
+                result.Add(new DirectoryLineItem() {Name = dir, NumberOfFiles = 0});
+            }
+            return result;
+        }
+
+        private IEnumerable<string> GetDirectoryList(string directory)
+        {
+            List<string> dirs = _fileSystem.Directory.EnumerateDirectories(directory).ToList();
+            foreach (var dir in dirs)
+            {
+                dirs.AddRange(GetDirectoryList(dir));
+            }
+            return dirs;
         }
 
         private static Regex BuildRegex(string filenamePattern, bool caseSensitive)

@@ -24,12 +24,16 @@ namespace FileFinder.View
         private void CreateAndBindViewModel()
         {
             var t = new TextEdit();
-            VM = new MainViewModel(new FileFinderService(new FileSystem()));
-            this.Bind(VM, vm => vm.Folder, v => v.TxtFolder.Text, TxtFolder.LostFocusEvent());
+            VM = new MainViewModel(new FileFinderService(new FileSystem()), new DirectoryFinderService(new FileSystem()));
+            this.Bind(VM, vm => vm.Folder, v => v.TxtDirectoryname.Text, TxtDirectoryname.LostFocusEvent());
             this.Bind(VM, vm => vm.FilenamePattern, v => v.TxtFilename.Text, TxtFilename.KeyUpEvent());
             this.Bind(VM, vm => vm.MatchingFiles, v => v.TxtResult.Text, TxtResult.LostFocusEvent());
             this.Bind(VM, vm => vm.CaseSensitive, v => v.CbxCaseSensitive.Checked, CbxCaseSensitive.CheckedChangedEvent());
-            this.BindCommand(VM, vm => vm.Find, c => c.BtnFind, "Click");
+            this.BindCommand(VM, vm => vm.FindFiles, c => c.BtnFind, "Click");
+
+            this.Bind(VM, vm => vm.MatchingDirectories, v => v.GrdDirectories.DataSource);
+            this.Bind(VM, vm => vm.DirectorynamePattern, v => v.TxtDirectoryname.Text, TxtDirectoryname.KeyUpEvent());
+            this.Bind(VM, vm => vm.DirectoryIgnorePattern, v => v.TxtIgnorePattern.Text, TxtIgnorePattern.KeyUpEvent());
         }
 
         private MainViewModel VM { get; set; }
