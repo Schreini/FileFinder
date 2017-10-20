@@ -71,12 +71,11 @@ namespace FileFinder.ViewModel
             FindFiles = ReactiveCommand.Create(async () =>
             {
                 string result = "";
-                //MatchingDirectories.Add(new DirectoryLineItem() {Name = Guid.NewGuid().ToString(), NumberOfFiles = 99});
                 await Observable.Start(() =>
                 {
                     try
                     {
-                        result = FinderService.FindByRegex(Folder, FilenamePattern, CaseSensitive);
+                        result = FinderService.FindByRegex(MatchingDirectories, FilenamePattern, CaseSensitive);
                     }
                     catch (Exception ex)
                     {
