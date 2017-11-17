@@ -7,9 +7,9 @@ namespace FileFinder.Service.Implementation
 {
     public class DirectoryFinderService : IDirectoryFinderService
     {
-        private readonly FileSystem _fileSystem;
+        private readonly IFileSystem _fileSystem;
 
-        public DirectoryFinderService(FileSystem fileSystem)
+        public DirectoryFinderService(IFileSystem fileSystem)
         {
             _fileSystem = fileSystem;
         }
@@ -21,7 +21,13 @@ namespace FileFinder.Service.Implementation
 
         public IEnumerable<DirectoryLineItem> FindAllRecursive(string rootDirectory, string directoryIgnorePattern)
         {
-            return GetDirectoryList(rootDirectory, directoryIgnorePattern);
+            var result = new List<DirectoryLineItem>();
+            if (_fileSystem.Directory.Exists(rootDirectory))
+            {
+                result.Add(new DirectoryLineItem(){Name = rootDirectory});
+                result.AddRange(GetDirectoryList(rootDirectory, directoryIgnorePattern));
+            }
+            return result;
         }
 
         private IEnumerable<DirectoryLineItem> GetDirectoryList(string path, string ignorePattern)
