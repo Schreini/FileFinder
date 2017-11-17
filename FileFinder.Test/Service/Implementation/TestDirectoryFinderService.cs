@@ -13,28 +13,11 @@ namespace FileFinder.Test.Service.Implementation
 {
     public class TestDirectoryFinderService
     {
-        [Fact]
-        public void GetDirectoryReturnsOwnDirectory()
-        {
-            var somedir = "c:\\SomeDir";
-            var target = new DirectoryFinderService(new MockFileSystem(new Dictionary<string, MockFileData>()
-            {
-                { somedir, new MockDirectoryData()},
-                { "c:\\SomeDir\\someFile.txt", new MockFileData("some content")}
-            }));
-
-            var actual = target.FindAllRecursive(somedir);
-
-            Assert.Single(actual);
-            Assert.Equal(somedir, actual.Single().Name);
-        }
-
         [Theory]
-        [InlineData(@"c:\")]
-        [InlineData(@"c:\HalloWelt")]
-        [InlineData(@"c:\HalloWelt\jaja")]
-        [InlineData(@"c:\Mimi")]
-        public void TheoryMethodName(string directory)
+        [InlineData(@"c:\HalloWelt\")]
+        [InlineData(@"c:\HalloWelt\jaja\")]
+        [InlineData(@"c:\Mimi\")]
+        public void GetDirectoryReturnsOwnDirectory(string directory)
         {
             var target = new DirectoryFinderService(new MockFileSystem(new Dictionary<string, MockFileData>()
             {
