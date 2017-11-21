@@ -38,15 +38,15 @@
             this.TxtIgnorePattern = new DevExpress.XtraEditors.TextEdit();
             this.TxtFilename = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.splitterItem1 = new DevExpress.XtraLayout.SplitterItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.TxtDirectoryname.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
@@ -58,15 +58,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.TxtIgnorePattern.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtFilename.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +74,7 @@
             // 
             this.TxtDirectoryname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtDirectoryname.Location = new System.Drawing.Point(98, 32);
+            this.TxtDirectoryname.Location = new System.Drawing.Point(98, 14);
             this.TxtDirectoryname.Name = "TxtDirectoryname";
             this.TxtDirectoryname.Size = new System.Drawing.Size(344, 20);
             this.TxtDirectoryname.StyleController = this.layoutControl1;
@@ -103,7 +103,7 @@
             // BtnFind
             // 
             this.BtnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnFind.Location = new System.Drawing.Point(475, 56);
+            this.BtnFind.Location = new System.Drawing.Point(475, 38);
             this.BtnFind.Name = "BtnFind";
             this.BtnFind.Size = new System.Drawing.Size(424, 22);
             this.BtnFind.StyleController = this.layoutControl1;
@@ -112,7 +112,7 @@
             // 
             // CbxCaseSensitive
             // 
-            this.CbxCaseSensitive.Location = new System.Drawing.Point(475, 82);
+            this.CbxCaseSensitive.Location = new System.Drawing.Point(475, 64);
             this.CbxCaseSensitive.Name = "CbxCaseSensitive";
             this.CbxCaseSensitive.Properties.Caption = "Case sensitive";
             this.CbxCaseSensitive.Size = new System.Drawing.Size(424, 19);
@@ -123,10 +123,10 @@
             // 
             this.GrdDirectories.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.GrdDirectories.Location = new System.Drawing.Point(14, 80);
+            this.GrdDirectories.Location = new System.Drawing.Point(14, 62);
             this.GrdDirectories.MainView = this.gridView1;
             this.GrdDirectories.Name = "GrdDirectories";
-            this.GrdDirectories.Size = new System.Drawing.Size(428, 401);
+            this.GrdDirectories.Size = new System.Drawing.Size(428, 419);
             this.GrdDirectories.TabIndex = 8;
             this.GrdDirectories.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -135,13 +135,14 @@
             // 
             this.gridView1.GridControl = this.GrdDirectories;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             // 
             // TxtResult
             // 
-            this.TxtResult.Location = new System.Drawing.Point(475, 105);
+            this.TxtResult.Location = new System.Drawing.Point(475, 87);
             this.TxtResult.Name = "TxtResult";
             this.TxtResult.Properties.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.TxtResult.Size = new System.Drawing.Size(424, 376);
+            this.TxtResult.Size = new System.Drawing.Size(424, 394);
             this.TxtResult.StyleController = this.layoutControl1;
             this.TxtResult.TabIndex = 5;
             // 
@@ -150,7 +151,7 @@
             this.TxtIgnorePattern.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtIgnorePattern.EditValue = "\\.vs|\\.svn|\\.git|bin|obj";
-            this.TxtIgnorePattern.Location = new System.Drawing.Point(98, 56);
+            this.TxtIgnorePattern.Location = new System.Drawing.Point(98, 38);
             this.TxtIgnorePattern.Name = "TxtIgnorePattern";
             this.TxtIgnorePattern.Size = new System.Drawing.Size(344, 20);
             this.TxtIgnorePattern.StyleController = this.layoutControl1;
@@ -160,7 +161,7 @@
             // 
             this.TxtFilename.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtFilename.Location = new System.Drawing.Point(559, 32);
+            this.TxtFilename.Location = new System.Drawing.Point(559, 14);
             this.TxtFilename.Name = "TxtFilename";
             this.TxtFilename.Size = new System.Drawing.Size(340, 20);
             this.TxtFilename.StyleController = this.layoutControl1;
@@ -180,24 +181,6 @@
             this.layoutControlGroup1.Size = new System.Drawing.Size(913, 495);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.TxtFilename;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(428, 24);
-            this.layoutControlItem3.Text = "Filename Pattern";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(81, 13);
-            // 
-            // layoutControlItem6
-            // 
-            this.layoutControlItem6.Control = this.CbxCaseSensitive;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 50);
-            this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(428, 23);
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem6.TextVisible = false;
-            // 
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
@@ -205,21 +188,23 @@
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.Size = new System.Drawing.Size(5, 495);
             // 
-            // layoutControlItem5
+            // layoutControlGroup2
             // 
-            this.layoutControlItem5.Control = this.TxtResult;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 73);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(428, 380);
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
+            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem4,
+            this.layoutControlItem2,
+            this.layoutControlItem1});
+            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup2.Name = "layoutControlGroup2";
+            this.layoutControlGroup2.Size = new System.Drawing.Size(456, 495);
+            this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.GrdDirectories;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(432, 405);
+            this.layoutControlItem4.Size = new System.Drawing.Size(432, 423);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -241,16 +226,6 @@
             this.layoutControlItem1.Text = "Root Directory";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 13);
             // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem4,
-            this.layoutControlItem2,
-            this.layoutControlItem1});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(456, 495);
-            // 
             // layoutControlGroup4
             // 
             this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -261,6 +236,34 @@
             this.layoutControlGroup4.Location = new System.Drawing.Point(461, 0);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(452, 495);
+            this.layoutControlGroup4.TextVisible = false;
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.TxtFilename;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(428, 24);
+            this.layoutControlItem3.Text = "Filename Pattern";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(81, 13);
+            // 
+            // layoutControlItem6
+            // 
+            this.layoutControlItem6.Control = this.CbxCaseSensitive;
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 50);
+            this.layoutControlItem6.Name = "layoutControlItem6";
+            this.layoutControlItem6.Size = new System.Drawing.Size(428, 23);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem6.TextVisible = false;
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.TxtResult;
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 73);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(428, 398);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem7
             // 
@@ -292,15 +295,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.TxtIgnorePattern.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.TxtFilename.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitterItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             this.ResumeLayout(false);
 
